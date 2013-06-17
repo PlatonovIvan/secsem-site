@@ -1,0 +1,57 @@
+{% extends "mainpart/base.html" %}
+{% block title %}Courses{% endblock %}
+{% block active_courses %} active{% endblock %}
+{% block content %}
+	<!-- content -->
+        <div class="content contentInner">
+        
+		<!-- leftCol -->
+        	<div class="leftCol">
+        		<div class="leftMenu">
+        			<nav>
+        				<ul>
+							{% for course in courses %}
+        					<li {%if course.id == cur.id %}{% if ttype == 0%}class="current"{% endif %}{% endif %}><a href="{% url mainpart.views.courses 0 course.id %}">{{ course.name }}</a></li>
+							{% endfor %}
+							{% for video in videos %}
+        					<li {%if video.id == cur.id %}{% if ttype == 1%}class="current"{% endif %}{% endif %}><a href="{% url mainpart.views.courses 1 video.id %}">{{ video.name }}</a></li>
+							{% endfor %}							
+        				</ul>
+        			</nav>
+        		</div>
+
+        	</div>
+		<!-- / leftCol -->
+
+		<!-- rightCol -->
+			{% if ttype == 0%}
+            <div class="rightCol">
+                <h1>{{ cur.name }}</h1>
+            	<p>{{ cur.lector }}</p>
+				<p>{{ cur.place }}</p>
+				<p>{{ cur.time }}</p>
+				<p>{{ cur.annotation }}</p>
+            </div>
+			{% endif %}
+			{% if ttype == 1 %}
+            <div class="rightCol">
+							{% if videotype == 0 %}
+							<iframe width="560" height="315" src="{{cur.path}}" frameborder="0" allowfullscreen></iframe>
+							{% endif %}
+							{% if videotype == 1 %}
+							<video>
+							 <source src="{{ STATIC_URL }}videos/{{ cur.path }}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+							</video>
+							{% endif %}
+	        					<h3>{{ cur.name }}</h3>
+	        					<p>{{ cur.annotation }}</p>
+            </div>			
+			{% endif %}
+		<!-- / rightCol-->
+            <div class="clear"><!-- clear --></div>
+            
+            <div class="up">Наверх</div>
+            
+        </div>
+	<!-- / content -->
+{% endblock %}

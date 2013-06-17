@@ -1,0 +1,38 @@
+{% extends "mainpart/base.html" %}
+{% block title %}People{% endblock %}
+{% block active_people %} active{% endblock %}
+{% block content %}
+	<!-- content -->
+        <div class="content contentInner">
+        
+		<!-- leftCol -->
+        	<div class="leftCol">
+        		<div class="leftMenu">
+        			<nav>
+        				<ul>
+<!--							<li class="current"><a href="">{{ cur.surname }} {{ cur.name }}</a></li> -->
+							{% for man in mans %}
+        					<li {%if man.id == cur.id %}class="current"{% endif %}><a href="{% url mainpart.views.persons man.nickname %}">{{ man.surname }} {{ man.name }}</a></li>
+							{% endfor %}
+        				</ul>
+        			</nav>
+        		</div>
+
+        	</div>
+		<!-- / leftCol -->
+
+		<!-- rightCol -->
+            <div class="rightCol">
+            	<img class="leftImg" src="{{ MEDIA_URL }}photos/{{ cur.photo }}" alt="">
+                <h1>{{ cur.surname }} {{ cur.name }}</h1>
+            	<p>{{ cur.information }}</p>
+            
+            </div>
+		<!-- / rightCol-->
+            <div class="clear"><!-- clear --></div>
+            
+            <div class="up">UP</div>
+            
+        </div>
+	<!-- / content -->
+{% endblock %}

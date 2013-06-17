@@ -1,0 +1,128 @@
+* {
+	vertical-align: baseline;
+	font-weight: inherit;
+	font-family: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	border: 0 none;
+	outline: 0;
+	padding: 0;
+	margin: 0;
+    list-style-type:none; 
+}
+strong {font-weight:bold}
+i {font-style:italic}
+code {
+	letter-spacing:5px;
+	color:gray
+}
+a {color:#19c3bd; text-decoration:underline}
+a:hover {text-decoration:none}
+.clear {clear:both; height:0; overflow:hidden; position:relative; zoom:1}
+
+body {background:url(../images/bg.png) center 0 repeat; font:12px/15px Arial, Helvetica, sans-serif; color:#000; padding-bottom:161px}
+
+header {height:327px; background:url(../images/head.png) center 0 no-repeat}
+
+.headCont {width:1000px; margin:0 auto; position:relative; height:327px}
+.headCont .logo {position:absolute; left:12px; top:69px}
+.headCont .menu {height:40px; border:2px solid #fffdfd; background:#f3f4f5;
+-webkit-box-shadow: #ccc 0 0 6px;
+-moz-box-shadow: #ccc 0 0 6px;
+box-shadow: #ccc 0 0 6px;
+behavior: url("./css/pie/PIE.htc"); position:absolute; left:0; bottom:-1px; width:1000px
+}
+.headCont .menu ul {position:relative; top:-2px}
+.headCont .menu ul li {float:left; width:auto; margin:0 -20px 0 0; position:relative}
+.headCont .menu ul li.link1 {z-index:7; width:185px}
+.headCont .menu ul li.link1 a {padding:0 88px 0 0}
+.headCont .menu ul li.link2 {z-index:6; width:155px}
+.headCont .menu ul li.link3 {z-index:5; width:175px}
+.headCont .menu ul li.link4 {z-index:4; width:183px}
+.headCont .menu ul li.link5 {z-index:3; width:150px}
+.headCont .menu ul li.link6 {z-index:2; width:159px}
+.headCont .menu ul li.link7 {z-index:1; width:138px; margin:0 -55px 0 0}
+.headCont .menu ul li a {height:42px; display:block; background:url(../images/a.png) 100% 0 no-repeat; font:15px/44px Arial, Helvetica, sans-serif; color:#000; text-decoration:none; text-transform:uppercase; display:block; padding:0 23px 0 14px; text-align:center}
+.headCont .menu ul li a:hover, .headCont .menu ul li.active a {background-position:100% -62px}
+
+.slider {background:#eaecf0; height:395px; padding:17px 0 0; margin:0 0 46px; position:relative}
+.sliderCont {position:relative; width:1000px; margin:0 auto; overflow:hidden; *zoom:1}
+
+.slider .backward, .slider .forward {position:absolute; width:25px; height:22px; background:url(../images/prev_next.png) -24px 0 no-repeat; overflow:hidden; *zoom:1; text-indent:-500px; top:177px; z-index:2; cursor:pointer}
+.slider .backward {left:55px}
+.slider .forward {left:368px}
+.slider .backward:hover, .slider .forward:hover {background-position:0 0}
+
+.slider ul {width:1000px; height:378px; overflow:hidden; position:relative; *zoom:1; margin:0 auto}
+.slider ul li {width:1000px; height:378px; overflow:hidden; position:absolute; *zoom:1; left:0; top:0}
+.slider ul li img {display:block; height:378px; width:1024px}
+
+.slidetabs {position:absolute; right:25px; bottom:25px; display:none}
+.slidetabs a {background:#e1e1e1; text-decoration:none; float:left; margin:0 5px 0 0; padding:5px 8px; color:#333}
+.slidetabs a:hover, .slidetabs a.current {background:#333; color:#fff}
+
+.text {width:199px; height:348px; position:absolute; background:url(../images/text.png); left:24px; top:16px; font:14px/14px Arial, Helvetica, sans-serif; padding:0 97px 0 104px}
+.text h2 {font:bold 22px/26px Tahoma, Geneva, sans-serif; text-transform:uppercase; letter-spacing:-1px; padding:88px 0 8px; text-align:center; border-bottom:1px solid #000; margin-bottom:14px}
+
+.page {width:1600px; height:1671px; position:absolute; left:50%; top:0; margin:0 0 0 -800px; background:url(../1.png) no-repeat; z-index:999; opacity:0.5}
+
+.content {background:#eaecf0; width:950px; margin:0 auto; padding:10px 25px 22px; position:relative}
+
+.contentInner {background:url(../images/lCOl.png) 0 repeat-y #fff; border:3px solid #eaecf0; width:1000px; margin:0 auto; padding:0 0 20px; position:relative; min-height:701px}
+.contentInner .leftCol {width:216px; position:relative; left:-1px}
+.contentInner .rightCol {width:728px; padding:19px 28px 0 28px; line-height:14px}
+.leftMenu li {display:block; border-bottom:1px solid #eaecf0}
+.leftMenu li a {display:block; background:#fcfcfc; font-size:14px; text-decoration:none; color:#a6aaba; padding:10px 10px 9px 28px}
+.leftMenu li a:hover, .leftMenu li.current a {background:url(../images/lMenu.png) repeat-x; color:#000}
+.contentInner .rightCol h1 {font:bold 15px/28px Arial, Helvetica, sans-serif; text-transform:uppercase; letter-spacing:-1px; padding:0 6px 4px}
+.contentInner .rightCol p {padding-bottom:15px}
+.contentInner .rightCol img {position:relative; top:5px}
+.leftImg {float:left; margin:0 25px 15px 0; width:auto}
+.rightImg {float:right; margin:0 0 15px 25px; width:auto}
+
+.leftCol {float:left; width:537px}
+
+.news {padding-bottom:6px}
+.news h2 {font:bold 18px/28px Tahoma, Geneva, sans-serif; text-transform:uppercase; letter-spacing:-1px; padding:0 6px 10px}
+.news ul {background:#fff; padding:10px 10px 4px 18px}
+.news ul li {overflow:hidden; position:relative; *zoom:1; display:block; padding:0 5px 15px 0}
+.news ul li img {float:left; width:133px; margin:0 16px 10px 0; position:relative; top:5px}
+.news ul li h3 {font:bold 14px/18px Arial, Helvetica, sans-serif; text-transform:uppercase; padding:0 5px 7px 0}
+.news ul li .date {padding-bottom:13px}
+.news ul li .more {text-align:right; padding:8px 15px 0 0}
+.news ul li .more a {color:#19c3bd; text-decoration:none; font-style:italic; font-size:13px}
+.news ul li .more a:hover {text-decoration:underline}
+
+.video {padding-bottom:6px}
+.video h2 {font:bold 18px/28px Tahoma, Geneva, sans-serif; text-transform:uppercase; letter-spacing:-1px; padding:0 6px 10px}
+.video ul {background:#fff; padding:19px 10px 4px 18px; min-height:214px}
+.video ul li {overflow:hidden; position:relative; *zoom:1; display:block; padding:0 5px 15px 0}
+.video ul li img {float:left; width:247px; margin:0 16px 10px 0; position:relative; top:5px}
+.video ul li h3 {font:bold 14px/18px Arial, Helvetica, sans-serif; text-transform:uppercase; padding:5px 5px 7px 0}
+.video ul li .videoText {min-height:133px}
+.video ul li .more {text-align:right; padding:8px 15px 0 0}
+.video ul li .more a {color:#19c3bd; text-decoration:none; font-style:italic; font-size:13px}
+.video ul li .more a:hover {text-decoration:underline}
+
+.all {padding-bottom:6px}
+.all h2 {font:bold 18px/28px Tahoma, Geneva, sans-serif; text-transform:uppercase; letter-spacing:-1px; padding:0 13px 10px}
+.all ul {background:#fff; padding:22px 14px}
+.all ul li {background:url(../images/li.png) 0 6px no-repeat; display:block; font-size:14px; padding:0 0 3px 19px}
+.all ul li a {text-decoration:none; color:#000}
+.all ul li a:hover {text-decoration:underline; color:#19c3bd}
+
+.teachers {padding-bottom:6px}
+.teachers h2 {font:bold 18px/28px Tahoma, Geneva, sans-serif; text-transform:uppercase; letter-spacing:-1px; padding:0 13px 10px}
+.teachers ul {background:#fff; padding:12px 10px 0 18px; min-height:214px}
+.teachers ul li {overflow:hidden; position:relative; *zoom:1; display:block; padding:0 5px 15px 0; line-height:15px}
+.teachers ul li img {float:left; width:102px; height:102px; margin:0 10px 10px 0; position:relative; top:7px}
+.teachers ul li h3 {font:bold 14px/18px Arial, Helvetica, sans-serif; text-transform:uppercase; padding:6px 5px 1px 0}
+.teachers ul li .videoText {min-height:133px}
+.teachers ul li .more {text-align:right; padding:8px 15px 0 0}
+.teachers ul li .more a {color:#19c3bd; text-decoration:none; font-style:italic; font-size:13px}
+
+
+.rightCol {float:right; width:391px; padding:0 2px 0 0}
+
+.up {width:41px; height:198px; position:absolute; background:url(../images/up.png) no-repeat; right:-41px; bottom:0; cursor:pointer; overflow:hidden; *zoom:1; text-indent:-500px; display:none}
+.contentInner .up {bottom:-3px}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>{% block title %}{% endblock %}{% block blank_title %}{% endblock %}</title>
+		<link rel="stylesheet" href="{{ STATIC_URL }}fonts/fonts.css">
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">	
+		<!--[if lt IE 9]>
+			<script src="{{ STATIC_URL }}css/html5.js"></script>
+		<![endif]-->
+		<script src="{{ STATIC_URL }}js/jquery-1.9.0.min.js"></script>
+		{% block js %}{% endblock %}
+	</head>
+	<body>
+
+	<!-- header -->
+		<header>
+			<div class="headCont">
+				<div class="logo"><a href="{% url mainpart.views.main %}"><img src="{{ STATIC_URL }}images/logo.png" alt=""></a></div>
+				<div class="menu">
+	                <nav>
+						<ul>
+							<li class="link1{% block active_news %}{% endblock %}{% block blank_active_news %}{% endblock %}"><a href="{%url mainpart.views.news 0 %}">News</a></li>
+							<li class="link2{% block active_people %}{% endblock %}{% block blank_active_people %}{% endblock %}"><a href="{%url mainpart.views.persons 0 %}">People</a></li>
+							<li class="link3{% block active_projects %}{% endblock %}{% block blank_active_projects %}{% endblock %}"><a href="{%url mainpart.views.project 0 %}">Projects</a></li>
+							<li class="link4{% block active_publications %}{% endblock %}{% block blank_active_publications %}{% endblock %}"><a href="{%url mainpart.views.publications 0 %}">Publications</a></li>
+							<li class="link5{% block active_studying %}{% endblock %}{% block blank_active_studying %}{% endblock %}"><a href="{%url mainpart.views.studying 0 %}">Study</a></li>
+							<li class="link6{% block active_courses %}{% endblock %}{% block blank_active_courses %}{% endblock %}"><a href="{%url mainpart.views.courses 0 0 %}">Courses</a></li>
+							<li class="link7{% block active_faq %}{% endblock %}{% block blank_active_faq %}{% endblock %}"><a href="{%url mainpart.views.faq 0 %}">FAQ</a></li>
+						</ul>
+	                </nav>
+				</div>
+			</div>
+		</header>
+	<!-- / header -->
+	{% block slider %}{% endblock %}
+	{% block content %}{% endblock %}
+	</body>
+</html>

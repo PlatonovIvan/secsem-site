@@ -1,0 +1,37 @@
+{% extends "mainpart/base.html" %}
+{% block title %}News{% endblock %}
+{% block active_news %} active{% endblock %}
+{% block content %}
+	<!-- content -->
+        <div class="content contentInner">
+        
+		<!-- leftCol -->
+        	<div class="leftCol">
+        		<div class="leftMenu">
+        			<nav>
+        				<ul>
+							{% for new in news %}
+        					<li {%if new.id == cur.id %}class="current"{% endif %}><a href="{% url mainpart.views.news new.id %}">{{ new.title }}</a></li>
+							{% endfor %}
+        				</ul>
+        			</nav>
+        		</div>
+
+        	</div>
+		<!-- / leftCol -->
+
+		<!-- rightCol -->
+            <div class="rightCol">
+            	<img class="leftImg" src="{{ STATIC_URL }}news/{{ cur.picture }}" alt="">
+                <h1>{{ cur.title }}</h1>
+            	<p>{{ cur.body }}</p>
+				<p>{{ cur.timestamp }}</p>
+            </div>
+		<!-- / rightCol-->
+            <div class="clear"><!-- clear --></div>
+            
+            <div class="up">UP</div>
+            
+        </div>
+	<!-- / content -->
+{% endblock %}

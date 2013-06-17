@@ -1,0 +1,36 @@
+{% extends "mainpart/base.html" %}
+{% block title %}FAQ{% endblock %}
+{% block active_faq %} active{% endblock %}
+{% block content %}
+	<!-- content -->
+        <div class="content contentInner">
+        
+		<!-- leftCol -->
+        	<div class="leftCol">
+        		<div class="leftMenu">
+        			<nav>
+        				<ul>
+							{% for faq in faqs %}
+        					<li {%if faq.id == cur.id %}class="current"{% endif %}><a href="{% url mainpart.views.faq faq.id %}">{{ faq.question }}</a></li>
+							{% endfor %}
+        				</ul>
+        			</nav>
+        		</div>
+
+        	</div>
+		<!-- / leftCol -->
+
+		<!-- rightCol -->
+            <div class="rightCol">
+                <h1>{{ cur.question }}</h1>
+            	<p>{{ cur.answer }}</p>
+            
+            </div>
+		<!-- / rightCol-->
+            <div class="clear"><!-- clear --></div>
+            
+            <div class="up">UP</div>
+            
+        </div>
+	<!-- / content -->
+{% endblock %}

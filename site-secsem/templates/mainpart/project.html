@@ -1,0 +1,37 @@
+{% extends "mainpart/base.html" %}
+{% block title %}Projects{% endblock %}
+{% block active_projects %} active{% endblock %}
+{% block content %}
+	<!-- content -->
+        <div class="content contentInner">
+        
+		<!-- leftCol -->
+        	<div class="leftCol">
+        		<div class="leftMenu">
+        			<nav>
+        				<ul>
+							{% for project in projects %}
+        					<li {%if project.id == cur.id %}class="current"{% endif %}><a href="{% url mainpart.views.project project.id %}">{{ project.name }}</a></li>
+							{% endfor %}
+        				</ul>
+        			</nav>
+        		</div>
+
+        	</div>
+		<!-- / leftCol -->
+
+		<!-- rightCol -->
+            <div class="rightCol">
+                <h1>{{ cur.name }}</h1>
+            	<p>{{ cur.all_info }}</p>
+				<a href="{{ cur.link }}">{{cur.link}}</a>
+            
+            </div>
+		<!-- / rightCol-->
+            <div class="clear"><!-- clear --></div>
+            
+            <div class="up">UP</div>
+            
+        </div>
+	<!-- / content -->
+{% endblock %}

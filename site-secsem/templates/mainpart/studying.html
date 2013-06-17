@@ -1,0 +1,36 @@
+{% extends "mainpart/base.html" %}
+{% block title %}Study{% endblock %}
+{% block active_studying %} active{% endblock %}
+{% block content %}
+	<!-- content -->
+        <div class="content contentInner">
+        
+		<!-- leftCol -->
+        	<div class="leftCol">
+        		<div class="leftMenu">
+        			<nav>
+        				<ul>
+							{% for studying in studyings %}
+        					<li {%if studying.id == cur.id %}class="current"{% endif %}><a href="{% url mainpart.views.studying studying.id %}">{{ studying.title }}</a></li>
+							{% endfor %}
+        				</ul>
+        			</nav>
+        		</div>
+
+        	</div>
+		<!-- / leftCol -->
+
+		<!-- rightCol -->
+            <div class="rightCol">
+                <h1>{{ cur.title }}</h1>
+				<p>{{ cur.author }}</p>
+            	<p>{{ cur.all_info }}</p>
+            </div>
+		<!-- / rightCol-->
+            <div class="clear"><!-- clear --></div>
+            
+            <div class="up">UP</div>
+            
+        </div>
+	<!-- / content -->
+{% endblock %}

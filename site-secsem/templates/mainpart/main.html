@@ -1,0 +1,121 @@
+{% extends "mainpart/base.html" %}
+{% block title %}Main page{% endblock %}
+{% block js %}<script src="{{STATIC_URL}}js/jquery.tools.min.js"></script>{% endblock %}
+{% block slider %}
+	<!-- slider -->
+        <div class="slider">
+	        <div class="sliderCont">
+	            <button class="backward">Backward</button>
+	        	<ul>
+				{% for slide in sliders %}
+	        		<li>
+	        			<img src="{{ STATIC_URL }}slides/{{ slide.picture }}" alt="">
+	        			<div class="text">
+	        				<h2>{{ slide.title }}</h2>
+	        				<p>{{ slide.text }}</p>
+	        			</div>
+	        		</li>
+				{% endfor %}
+	        	</ul>
+	            <button class="forward">Forward</button>
+				<!-- the tabs -->
+				<div class="slidetabs">{%for slide in sliders %}
+					<a href="#">{{ forloop.counter }}</a>{% endfor %}
+				</div>
+	        </div>
+        </div>
+	<!-- / slider -->
+{% endblock %}
+
+
+
+{% block content %}
+
+
+	<!-- content -->
+        <div class="content">
+        
+		<!-- leftCol -->
+        	<div class="leftCol">
+            
+			<!-- news -->
+        		<div class="news">
+        			<h2>News</h2>
+        			<ul>
+					{% for newspost in newsposts %}
+        				<li>
+        					<img src="{{ STATIC_URL }}news/{{ newspost.picture }}" alt="">
+        					<h3>{{ newspost.title }}</h3>
+        					<div class="date">{{ newspost.timestamp }}</div>
+        					<p>{{ newspost.body }}</p>
+        					<div class="more"><a href="{% url mainpart.views.news newspost.id %}">More &gt;&gt;</a></div>
+        				</li>
+					{% endfor %}
+        			</ul>
+        		</div>
+			<!-- / news -->
+            
+			<!-- video -->
+                <div class="video">
+        			<h2>Video courses</h2>
+        			<ul>
+        				<li>
+							{% if videotype == 0 %}
+							<iframe width="560" height="315" src="{{videocourse.path}}" frameborder="0" allowfullscreen></iframe>
+							{% endif %}
+							{% if videotype == 1 %}
+							<video>
+							 <source src="{{ STATIC_URL }}videos/{{ videocourse.path }}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+							</video>
+							{% endif %}
+                            <div class="videoText">
+	        					<h3>{{ videocourse.name }}</h3>
+	        					<p>{{ videocourse.annotation }}</p>
+                            </div>
+        					{%if videotype == 0 or videotype == 1%}<div class="more"><a href="{% url mainpart.views.courses 1 videocourse.id%}">More &gt;&gt;</a></div>{% endif %}
+        				</li>
+        			</ul>
+                </div>
+			<!-- / video -->
+            
+        	</div>
+		<!-- / leftCol -->
+
+		<!-- rightCol -->
+            <div class="rightCol">
+            
+			<!-- all -->
+            	<div class="all">
+            		<h2>Courses</h2>
+            		<ul>
+						{% for course in courses %}
+						<li><a href="{% url mainpart.views.courses 0 course.id%}">{{ course.name }}</a></li>
+						{% endfor %}
+            		</ul>
+            	</div>
+			<!-- / all -->
+
+			<!-- teachers -->
+                <div class="teachers">
+                	<h2>People</h2>
+                	<ul>
+					{% for person in persons %}
+                		<li>
+                			<img src="{{ STATIC_URL }}photos/{{ person.photo }}" alt="">
+                            <h3> {{ person.surname }} {{ person.name }}</h3>
+                			<p>{{ person.information }}</p>
+                		</li>
+					{% endfor %}
+                	</ul>
+                </div>
+			<!-- / teachers -->
+            
+            </div>
+		<!-- / rightCol-->
+            <div class="clear"><!-- clear --></div>
+            
+            <div class="up">Up</div>
+            
+        </div>
+	<!-- / content -->
+{% endblock %}
