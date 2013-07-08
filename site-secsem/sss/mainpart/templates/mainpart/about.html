@@ -1,0 +1,36 @@
+{% extends "mainpart/base.html" %}
+{%load i18n%}
+{% block title %}About{% endblock %}
+{% block active_faq %} active{% endblock %}
+{% block content %}
+	<!-- content -->
+        <div class="content contentInner">
+        
+		<!-- leftCol -->
+        	<div class="leftCol">
+        		<div class="leftMenu">
+        			<nav>
+        				<ul>
+        					<li{%if about_type == "lab"%} class = "current" {%endif%}><a href="{% url 'mainpart.views.about' "lab" %}">{%trans "Laboratory" %}</a></li>
+							<li{%if about_type == "contacts"%} class = "current" {%endif%}><a href="{% url 'mainpart.views.about' "contacts" %}">{% trans "Contacts" %}</a></li>
+								<li{%if about_type == "other"%} class = "current" {%endif%}><a href="{% url 'mainpart.views.about' "other" %}">{% trans "Other" %}</a>
+							</li>
+        				</ul>
+        			</nav>
+        		</div>
+
+        	</div>
+		<!-- / leftCol -->
+
+		<!-- rightCol -->
+            <div class="rightCol">
+            
+            </div>
+		<!-- / rightCol-->
+            <div class="clear"><!-- clear --></div>
+            
+            <div class="up">{%trans UP %}</div>
+            
+        </div>
+	<!-- / content -->
+{% endblock %}

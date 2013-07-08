@@ -1,0 +1,68 @@
+{% extends "mainpart/base.html" %}
+{%load i18n%}
+{% block title %}Courses{% endblock %}
+{% block active_courses %} active{% endblock %}
+{% block content %}
+	<!-- content -->
+        <div class="content contentInner">
+        
+		<!-- leftCol -->
+        	<div class="leftCol">
+        		<div class="leftMenu">
+        			<nav>
+        				<ul>
+        					<li {%if course_type == "lection"%} class = "current" {%endif%}><a href="{% url 'mainpart.views.courses' "lection" 0 %}">{% trans "Lections"%}</a></li>
+        					<li {%if course_type == "workshop"%} class = "current" {%endif%}><a href="{% url 'mainpart.views.courses' "workshop" 0 %}">{% trans "Workshops" %}</a></li>
+        				</ul>
+        			</nav>
+        		</div>
+
+        	</div>
+		<!-- / leftCol -->
+
+		<!-- rightCol -->
+            <div class="rightCol">
+				{%if course_type != "all"%}
+					<ul>
+                		<h1>{{ cur.contents.name }}</h1>
+						<p>{{ cur.contents.description }}</p>
+						<p>{{ cur.contents.bookmark }}</p>
+						<p>{{ cur.time }}</p>
+						<p>{{ cur.place }}</p>
+						{%if course_type == "lection"%}
+							<p>{{cur.lecturer}}</p>
+						{%else%}
+							<p>{{cur.seminarian}}</p>
+						{%endif%}
+					</ul>
+				{%else%}
+					<p>General information about courses</p>
+				{%endif%}
+            </div>
+
+
+
+			{%comment%}
+			{% if ttype == 1 %}
+            <div class="rightCol">
+							{% if videotype == 0 %}
+							<iframe width="560" height="315" src="{{cur.path}}" frameborder="0" allowfullscreen></iframe>
+							{% endif %}
+							{% if videotype == 1 %}
+							<video>
+							 <source src="{{ STATIC_URL }}videos/{{ cur.path }}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+							</video>
+							{% endif %}
+	        					<h3>{{ cur.name }}</h3>
+	        					<p>{{ cur.annotation }}</p>
+            </div>			
+			{% endif %}
+			{%endcomment%}
+		<!-- / rightCol-->
+            <div class="clear"><!-- clear --></div>
+            
+            <div class="up">UP</div>
+            
+        </div>
+	<!-- / content -->
+{% endblock %}

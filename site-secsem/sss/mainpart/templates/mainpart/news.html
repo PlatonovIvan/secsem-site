@@ -1,0 +1,49 @@
+{% extends "mainpart/base.html" %}
+{% load i18n %}
+{% block title %}News{% endblock %}
+{% block active_news %} active{% endblock %}
+{% block content %}
+	<!-- content -->
+        <div class="content contentInner">
+        
+		<!-- leftCol -->
+        	<div class="leftCol">
+        		<div class="leftMenu">
+        			<nav>
+        				<ul>
+							{% for new in news %}
+        						<li{%if new.id == cur.id%} class = "current" {%endif%}><a href="{% url 'mainpart.views.news' new.id %}">{{ new.contents.name }}</a></li>
+							{% endfor %}
+        				</ul>
+        			</nav>
+        		</div>
+
+        	</div>
+		<!-- / leftCol -->
+
+		<!-- rightCol -->
+            <div class="rightCol">
+				{%if news_type == Special%}
+            		<img class="leftImg" src="{{ STATIC_URL }}news/{{ cur.picture }}" alt="">
+                	<h1>{{ cur.contents.name }}</h1>
+            		<p>{% trans "Description" %}: {{ cur.contents.description }}</p>
+            		<p>{% trans "Bookmark" %}: {{ cur.contents.bookmark }}</p>
+            		<p>{% trans "Author" %}: {{ cur.author.surname }}</p>
+            		<p>{% trans "List Events" %}: {{ cur.list_events }}</p>
+            		<p>{% trans "List Long Term" %}: {{ cur.list_long_term }}</p>
+            		<p>{% trans "People" %}: {{ cur.people }}</p>
+				{%else%}
+					{%for n in news %}
+                		<h1>{{ cur.contents.name }}</h1>
+            			<p>{% trans "Description" %}: {{ cur.contents.description }}</p>
+					{%endfor%}
+				{%endif%}
+            </div>
+		<!-- / rightCol-->
+            <div class="clear"><!-- clear --></div>
+            
+            <div class="up">UP</div>
+            
+        </div>
+	<!-- / content -->
+{% endblock %}

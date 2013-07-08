@@ -1,0 +1,56 @@
+{% extends "mainpart/base.html" %}
+{% load i18n %}
+{% block title %}Projects{% endblock %}
+{% block active_projects %} active{% endblock %}
+{% block content %}
+	<!-- content -->
+        <div class="content contentInner">
+        
+		<!-- leftCol -->
+        	<div class="leftCol">
+        		<div class="leftMenu">
+        			<nav>
+        				<ul>
+							{% for project in projects %}
+        					<li {%if project.id == cur.id%} class = "current" {%endif%}><a href="{% url 'mainpart.views.project' project.id %}">{{ project.contents.name }}</a></li>
+							{% endfor %}
+        				</ul>
+        			</nav>
+        		</div>
+
+        	</div>
+		<!-- / leftCol -->
+
+		<!-- rightCol -->
+            <div class="rightCol">
+				{%if project_type == "Special"%}
+                	<h1>{{ cur.contents.name }}</h1>
+            		<p>{% trans Description %}:{{ cur.contents.description }}</p>	
+            		<p>{% trans Bookmark %}:{{ cur.contents.bookmark }}</p>
+            		<p>{% trans Goal %}: {{ cur.goal }}</p>
+            		<p>{% trans Start %}: {{ cur.starts }}</p>
+            		<p>{% trans End %}: {{ cur.ends }}</p>
+            		<p>{% trans Event %}: {{ cur.events }}</p>
+            		<p>{% trans Participants %}: {{ cur.participants }}</p>
+            		<p>{% trans Repository %}: {{ cur.repository }}</p>
+            		<p>{% trans Publications %}: {{ cur.publications }}</p>
+					<a href="{{ cur.link }}">{{cur.link}}</a>
+				{%else%}
+					{% for project in projects %}
+                		<h1>{{ project.contents.name }}</h1>
+						<p>{% trans Description %}:{{ cur.contents.description }}</p>	
+            			<p>{% trans Goal %}: {{ cur.goal }}</p>
+            			<p>{% trans Start %}: {{ cur.starts }}</p>
+            			<p>{% trans End %}: {{ cur.ends }}</p>
+					{%endfor%}
+				{%endif%}
+            		
+            </div>
+		<!-- / rightCol-->
+            <div class="clear"><!-- clear --></div>
+            
+            <div class="up">UP</div>
+            
+        </div>
+	<!-- / content -->
+{% endblock %}

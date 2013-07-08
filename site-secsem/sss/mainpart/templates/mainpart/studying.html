@@ -1,0 +1,59 @@
+{% extends "mainpart/base.html" %}
+{%load i18n%}
+{% block title %}Study{% endblock %}
+{% block active_studying %} active{% endblock %}
+{% block content %}
+	<!-- content -->
+        <div class="content contentInner">
+        
+		<!-- leftCol -->
+        	<div class="leftCol">
+        		<div class="leftMenu">
+        			<nav>
+        				<ul>
+        					<li {% if studying_type == "directions"%} class = "current" {% endif %}><a href="{% url 'mainpart.views.studying' 1 %}">{% trans "Directions of research" %}</a></li>
+        					<li{%if studying_type == "courseworks"%} class = "current" {% endif %}><a href="{% url 'mainpart.views.studying' 2 %}">{% trans "Info about courseworks" %}</a></li>
+        					<li{%if studying_type == "reviewers"%} class = "current" {% endif %}><a href="{% url 'mainpart.views.studying' 3 %}">{% trans "List of reviewers" %}</a></li>
+        					<li{%if studying_type == "projects"%} class = "current" {% endif %}><a href="{% url 'mainpart.views.studying' 4 %}">{% trans "Participation in projects" %}</a></li>
+        					<li{%if studying_type == "other"%} class = "current" {% endif %}><a href="{% url 'mainpart.views.studying' 5 %}">{% trans "Other" %}</a></li>
+        				</ul>
+        			</nav>
+        		</div>
+
+        	</div>
+		<!-- / leftCol -->
+
+		<!-- rightCol -->
+            <div class="rightCol">
+				{% if studying_id == 0%}
+					<h1>{% trans "General Information" %}</h1>
+				{%endif%}
+
+				{% if studying_id == 1%}
+					<h1>{% trans "Directions of Research" %}</h1>
+				{%endif%}
+
+				{% if studying_id == 2%}
+					<h1>{% trans "Information about annual projects" %}</h1>
+				{%endif%}
+	
+				{% if studying_id == 3%}
+					<h1>{% trans "List of reviewers" %}</h1>
+				{%endif%}
+
+				{% if studying_id == 4%}
+					<h1>{% trans "Participation in projects" %}</h1>
+				{%endif%}
+
+				{% if studying_id == 5%}
+					<h1>{% trans "Other" %}</h1>
+				{%endif%}
+            </div>
+		<!-- / rightCol-->
+            <div class="clear"><!-- clear --></div>
+            
+            <div class="up">UP</div>
+            
+        </div>
+	<!-- / content -->
+{% endblock %}

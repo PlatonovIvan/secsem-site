@@ -1,0 +1,208 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-07-05 15:55+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: mainpart/templates/mainpart/about.html:14
+msgid "Laboratory"
+msgstr "Лаборатория"
+
+#: mainpart/templates/mainpart/about.html:15
+msgid "Contacts"
+msgstr "Контакты"
+
+#: mainpart/templates/mainpart/about.html:16
+#: mainpart/templates/mainpart/studying.html:18
+#: mainpart/templates/mainpart/studying.html:49
+msgid "Other"
+msgstr "Другое"
+
+#: mainpart/templates/mainpart/base.html:24
+#: mainpart/templates/mainpart/main.html:46
+msgid "News"
+msgstr "Новости"
+
+#: mainpart/templates/mainpart/base.html:25
+#: mainpart/templates/mainpart/news.html:34
+msgid "People"
+msgstr "Сотрудники"
+
+#: mainpart/templates/mainpart/base.html:26
+msgid "Projects"
+msgstr "Проекты"
+
+#: mainpart/templates/mainpart/base.html:27
+msgid "Publications"
+msgstr "Публикации"
+
+#: mainpart/templates/mainpart/base.html:28
+msgid "Study"
+msgstr "Учеба"
+
+#: mainpart/templates/mainpart/base.html:29
+#: mainpart/templates/mainpart/main.html:92
+msgid "Courses"
+msgstr "Учебные курсы"
+
+#: mainpart/templates/mainpart/base.html:30
+msgid "About us"
+msgstr "О нас"
+
+#: mainpart/templates/mainpart/blank.html:21
+msgid "There is no information yet."
+msgstr "Информация отсутствует"
+
+#: mainpart/templates/mainpart/courses.html:14
+msgid "Lections"
+msgstr "Лекции"
+
+#: mainpart/templates/mainpart/courses.html:15
+msgid "Workshops"
+msgstr "Мастер-классы"
+
+#: mainpart/templates/mainpart/main.html:54
+#: mainpart/templates/mainpart/main.html:78
+msgid "More"
+msgstr "Далее"
+
+#: mainpart/templates/mainpart/main.html:63
+msgid "Video courses"
+msgstr "Видео курсы"
+
+#: mainpart/templates/mainpart/main.html:103
+msgid "Researchers"
+msgstr "Научные сотрудники"
+
+#: mainpart/templates/mainpart/news.html:29
+#: mainpart/templates/mainpart/news.html:38
+msgid "Description"
+msgstr "Описание"
+
+#: mainpart/templates/mainpart/news.html:31
+msgid "Author"
+msgstr "Автор"
+
+#: mainpart/templates/mainpart/news.html:32
+msgid "List Events"
+msgstr "Список событий"
+
+#: mainpart/templates/mainpart/news.html:33
+msgid "List Long Term"
+msgstr "Список курсовых работ"
+
+#: mainpart/templates/mainpart/person.html:16
+msgid "Director"
+msgstr "Заведующий лабораторией"
+
+#: mainpart/templates/mainpart/person.html:17
+msgid "Research Associates"
+msgstr "Научные сотрудники"
+
+#: mainpart/templates/mainpart/person.html:18
+msgid "Workers"
+msgstr "Сотрудники"
+
+#: mainpart/templates/mainpart/person.html:19
+msgid "Postgraduates"
+msgstr "Аспиранты"
+
+#: mainpart/templates/mainpart/person.html:20
+msgid "Students"
+msgstr "Студенты"
+
+#: mainpart/templates/mainpart/person.html:33
+#: mainpart/templates/mainpart/studying.html:29
+msgid "General Information"
+msgstr "Общая информация"
+
+#: mainpart/templates/mainpart/person.html:36
+msgid "nickname"
+msgstr ""
+
+#: mainpart/templates/mainpart/person.html:37
+msgid "Contact Information"
+msgstr "Контактная информация"
+
+#: mainpart/templates/mainpart/person.html:38
+msgid "email"
+msgstr "почтовый адрес"
+
+#: mainpart/templates/mainpart/person.html:39
+msgid "phone number"
+msgstr "телефон"
+
+#: mainpart/templates/mainpart/person.html:40
+msgid "social networks"
+msgstr "социальные сети"
+
+#: mainpart/templates/mainpart/person.html:41
+msgid "Personal Information"
+msgstr "Личная информация"
+
+#: mainpart/templates/mainpart/person.html:42
+msgid "biography"
+msgstr "биография"
+
+#: mainpart/templates/mainpart/person.html:47
+#, fuzzy
+msgid "year of entrance"
+msgstr "Год поступления"
+
+#: mainpart/templates/mainpart/person.html:48
+#, fuzzy
+msgid "year of graduation"
+msgstr "Год окончания"
+
+#: mainpart/templates/mainpart/person.html:50
+msgid "post"
+msgstr ""
+
+#: mainpart/templates/mainpart/person.html:51
+msgid "Date of entrance"
+msgstr "Дата поступления"
+
+#: mainpart/templates/mainpart/person.html:56
+msgid "Scientific"
+msgstr ""
+
+#: mainpart/templates/mainpart/studying.html:14
+msgid "Directions of research"
+msgstr "Направления исследований"
+
+#: mainpart/templates/mainpart/studying.html:15
+msgid "Info about courseworks"
+msgstr "Информация о выполнении курсовых работах"
+
+#: mainpart/templates/mainpart/studying.html:16
+#: mainpart/templates/mainpart/studying.html:41
+msgid "List of reviewers"
+msgstr "Список рецензентов"
+
+#: mainpart/templates/mainpart/studying.html:17
+#: mainpart/templates/mainpart/studying.html:45
+msgid "Participation in projects"
+msgstr "Участие в проектах"
+
+#: mainpart/templates/mainpart/studying.html:33
+msgid "Directions of Research"
+msgstr "Направление исследований"
+
+#: mainpart/templates/mainpart/studying.html:37
+msgid "Information about annual projects"
+msgstr "Информация о выполнении курсовых работ"

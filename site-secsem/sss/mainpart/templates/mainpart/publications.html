@@ -1,0 +1,58 @@
+{% extends "mainpart/base.html" %}
+{% block title %}Publications{% endblock %}
+{% block active_publications %} active{% endblock %}
+{% block content %}
+	<!-- content -->
+        <div class="content contentInner">
+	
+		<!-- leftCol -->
+        	<div class="leftCol">
+        		<div class="leftMenu">
+        			<nav>
+        				<ul>
+							{% for year in years %}
+								{% ifchanged year %}
+        							<li {%if year == pub_year %} class = "current" {%endif%}><a href="{% url 'mainpart.views.publications' year %}">{{ year }}</a></li>
+								{% endifchanged %}
+							{% endfor %}
+						
+        				</ul>
+        			</nav>
+        		</div>
+
+        	</div>
+		<!--/leftCol -->
+
+		<!-- rightCol -->
+            <div class="rightCol">
+            		<!-- <img class="leftImg" src="{{ STATIC_URL }}publications/{{ cur.picture }}" alt=""> -->
+                	<nav>
+						<ul>
+							{% for publication in publications %}
+								{%ifchanged publication.year%}
+									<h1> {{publication.year}} </h1>
+								{%endifchanged%}
+								<li>
+								{% for pers_info in publication.personalinformation_set.all %}
+										{% if pers_info.person.person_id.surname%}
+											{{pers_info.person.person_id.surname|capfirst}}
+										{% endif %}
+										{%if pers_info.person.person_id.name %} 
+												{{pers_info.person.person_id.name|capfirst}}
+										{% endif %} 	
+									{% endfor %}
+									{{ publication.topic|title}} {{publication.doi}} {{publication.journal}} {{publication.place}} {{publication.conference}} {{publication.year}}
+								</li>
+							{% endfor %}
+						</ul>
+					</nav>
+            </div>
+		
+		<!-- / rightCol-->
+            <div class="clear"><!-- clear --></div>
+            
+            <div class="up">UP</div>
+            
+        </div>
+	<!-- / content -->
+{% endblock %}

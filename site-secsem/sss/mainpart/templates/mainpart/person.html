@@ -1,0 +1,80 @@
+{% extends "mainpart/base.html" %}
+{%load i18n%}
+{% block title %}People{% endblock %}
+{% block active_people %} active{% endblock %}
+{% block content %}
+	<!-- content -->
+        <div class="content contentInner">
+        
+		<!-- leftCol -->
+        	<div class="leftCol">
+        		<div class="leftMenu">
+        			<nav>
+        				<ul>
+<!--							<li class="current"><a href="">{{ cur.surname }} {{ cur.name }}</a></li> -->
+							
+        					<li><a href="{% url 'mainpart.views.persons' "director" %}">{% trans "Director" %}</a></li>
+        					<li><a href="{% url 'mainpart.views.persons' "researchers" %}">{% trans "Research Associates" %}</a></li>
+        					<li><a href="{% url 'mainpart.views.persons' "workers" %}">{% trans "Workers" %}</a></li>
+        					<li><a href="{% url 'mainpart.views.persons' "postgraduates" %}">{% trans "Postgraduates" %}</a></li>
+        					<li><a href="{% url 'mainpart.views.persons' "students" %}">{% trans "Students" %}</a></li>
+        				</ul>
+        			</nav>
+        		</div>
+
+        	</div>
+		<!-- / leftCol -->
+		
+		<!-- rightCol -->
+            <div class="rightCol">
+				<ul>
+				{%if person_id != "all"%}
+					<h1>{{cur.person_id.surname}}, {{person_name}} </h1>
+						<h2>{% trans "General Information" %}</h2> 
+							<img class="leftImg" src="{{ MEDIA_URL }}photos/{{ cur.personal.photo }}" alt=""> 
+							<p>{{cur.person_id.patronymic}}</p>
+							<p>{% trans "nickname" %}: {{cur.person_id.nickname}}</p>
+						<h2>{% trans "Contact Information" %}</h2>
+							<p>{% trans "email" %}: {{cur.contacts.email}}</p>
+							<p>{% trans "phone number" %}: {{cur.contacts.phone_number}}</p>
+							<p>{% trans "social networks"%} : {{cur.contacts.social_network1}} {{cur.contacts.social_network2}} {{cur.contacts.social_network3}}</p>
+						<h2>{% trans "Personal Information" %}</h2>
+							<p>{% trans "biography" %}: {{cur.personal.biography}}</p>
+							{%for pub in cur.personal.publications%}
+								<p>{{pub}}</p>
+							{%endfor%}
+							{% if person_type == "student" %}
+								<p>{% trans "year of entrance" %}: {{cur.year_of_entrance}}</p>
+								<p>{% trans "year of graduation" %}: {{cur.year_of_graduation}}</p>
+							{% else%}
+								<p>{% trans "post" %}: {{cur.post}}</p>
+								<p>{% trans "Date of entrance" %}: {{cur.date_of_entrance}}</p>
+								{%if person_type == "res_ass"%}
+									{%for student in cur.students%}
+										{{student}}
+									{%endfor%}
+									<p>{% trans "Scientific" %}: {{cur.scientific
+}}</p>
+								{% endif %}
+							{% endif %}
+				{%endif%}
+				{% for person_id, person_list in cur.items %}	
+					<h1>{{person_id}}</h1>
+					{% for person in person_list %}
+            			<li> 
+							<img class="leftImg" src="{{ MEDIA_URL }}photos/{{ cur.personal.photo }}" alt=""> 
+							<a href="{% url 'mainpart.views.persons' person.person_id.id %}">{{ person.person_id.surname}} {{ person.person_id.name }}</a>
+						</li>
+					{%endfor%}
+				{%endfor%}
+				<ul>
+            </div>
+		<!-- / rightCol-->
+		
+            <div class="clear"><!-- clear --></div>
+            
+            <div class="up">UP</div>
+            
+        </div>
+	<!-- / content -->
+{% endblock %}
