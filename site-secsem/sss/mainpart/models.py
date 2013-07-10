@@ -9,7 +9,7 @@ class Identity(models.Model):
 	patronymic = models.CharField(max_length=20,blank=True)
 	nickname = models.CharField(max_length=30)
 	def __unicode__(self):
-		return self.nickname
+		return (self.surname + " " + self.name + " " + self.patronymic)
 		
 class ContactInformation(models.Model):
 	email = models.EmailField(max_length=30,blank=True)
@@ -183,30 +183,4 @@ class Project(LongTermActivity):
 	def __unicode__(self):
 	    return self.contents.name
 
-admin.site.register(Project)
-admin.site.register(Course)
-#admin.site.register(LongTermActivity)
-
-admin.site.register(NewsPost)
-
-#admin.site.register(Identity)
-admin.site.register(ContactInformation)
-#admin.site.register(PersonalInformation)
-admin.site.register(Person)
-admin.site.register(Student)
-admin.site.register(Specialist)
-admin.site.register(Bachelor)
-admin.site.register(Master)
-admin.site.register(Postgraduate)
-#admin.site.register(Employee)
-#admin.site.register(Research_associate)
-admin.site.register(Worker)
-admin.site.register(Director)
-
-#admin.site.register(Publication)
-#admin.site.register(Content)
-
-#admin.site.register(Event)
-#admin.site.register(Workshop)
-#admin.site.register(Lecture)
 
