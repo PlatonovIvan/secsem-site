@@ -93,6 +93,16 @@ behavior: url("./css/pie/PIE.htc"); position:absolute; left:0; bottom:-1px; widt
 .news ul li .more a {color:#19c3bd; text-decoration:none; font-style:italic; font-size:13px}
 .news ul li .more a:hover {text-decoration:underline}
 
+
+.tags {padding-bottom:6px}
+.tags h2 {font:bold 18px/28px Tahoma, Geneva, sans-serif; text-transform:uppercase; letter-spacing:-1px; padding:0 13px 10px}
+.tags ul {background:#fff; padding:22px 14px}
+.tags ul li {background:url(../images/li.png) 0 6px no-repeat; display:block; padding:0 0 3px 19px}
+.tags ul li a {text-decoration:none; color:#000}
+.tags ul li a:hover {text-decoration:underline; color:#19c3bd}
+
+
+
 .video {padding-bottom:6px}
 .video h2 {font:bold 18px/28px Tahoma, Geneva, sans-serif; text-transform:uppercase; letter-spacing:-1px; padding:0 6px 10px}
 .video ul {background:#fff; padding:19px 10px 4px 18px; min-height:214px}

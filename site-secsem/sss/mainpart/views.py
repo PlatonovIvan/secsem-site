@@ -107,6 +107,7 @@ def main(request):
 	directors = Director.objects.all()
 	res_ass = Research_associate.objects.all()
 	workers = Worker.objects.all()
+	publications = Publication.objects.all()
   	"""
   	coursess = Course.objects.all()
   	all_video = VideoCourse.objects.all()
@@ -123,7 +124,7 @@ def main(request):
   	news = NewsPost.objects.all().order_by('-id')[:2]  
   	
   	#sliders = Slide.objects.all()
-  	
+
   	t = loader.get_template('mainpart/main.html')
   	c = RequestContext(request, {
       		'directors': directors,
@@ -133,8 +134,9 @@ def main(request):
 	  		'newsposts': news,
 	 		# 'videocourse': video,
 	 		# 'courses': coursess,
-	 		# 'videotype': videotype
+	 		# 'videotype': videotype,
   	})
+	
   	return HttpResponse(t.render(c))    	
 
 def publications(request, pub_year):
@@ -210,11 +212,11 @@ def project(request, project_id):
 
 def courses(request, course_type, course_id):
   	
-	try:
-		
+	try:	
 		lections = Lecture.objects.all()
 		workshops = Workshop.objects.all()
-		total_len = len(lections) + len(workshops)
+		courses = Course.objects.all()
+		total_len = len(lections) + len(workshops)+ len(courses)
 		if (total_len == 0):
 			title = "Courses"
 			tt = loader.get_template('mainpart/blank_courses.html')
@@ -230,6 +232,10 @@ def courses(request, course_type, course_id):
 			cur = workshops
 			if (cur):
 				raise Http404()
+		elif (course_type == "course"):
+			cur = courses
+			if (cur):
+				raise Http404()
 		elif (course_type == "all"):
 			cur = []
 		else:	
@@ -239,7 +245,6 @@ def courses(request, course_type, course_id):
 		c = RequestContext(request, {
      		'cur': cur,
 			'course_type': course_type
-
   		})
 		return HttpResponse(t.render(c))  
 	except ValueError:
@@ -265,7 +270,7 @@ def news(request, new_id):
    		title = "Studyings"
    		tt = loader.get_template('mainpart/blank_news.html')
    		cc = RequestContext(request, {
-	'		title': title
+			'title': title
    		})
    		return HttpResponse(tt.render(cc))
   	contain = False
@@ -299,3 +304,32 @@ def about(request, about_type):
      	'about_type': about_type
   	})
   	return HttpResponse(t.render(c))
+
+def tags(request, req_tag):
+	publications = Publication.objects.filter(tags__name = req_tag)	
+	workshops = Workshop.objects.filter(tags__name = req_tag)
+	lectures = Lecture.objects.filter(tags__name = req_tag)
+	news = NewsPost.objects.filter(tags__name = req_tag)
+	courses = Course.objects.filter(tags__name = req_tag)
+	projects = Project.objects.filter(tags__name = req_tag)
+	total_len = len(publications)+len(workshops)+len(lectures)+\
+				len(news)+len(courses)+len(projects)
+	if (total_len == 0):
+		title = "Search Results"
+   		tt = loader.get_template('mainpart/blank_tags.html')
+   		cc = RequestContext(request, {
+			'title': title
+   		})
+   		return HttpResponse(tt.render(cc))
+
+	t = loader.get_template('mainpart/tags.html')
+  	c = RequestContext(request, {
+     	'publications': publications,
+		'workshops': workshops,
+		'lectures': lectures,
+		'news': news,
+		'courses': courses,
+		'projects': projects,
+  	})
+  	return HttpResponse(t.render(c))
+

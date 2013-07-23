@@ -1,7 +1,9 @@
 {% extends "mainpart/base.html" %}
 {% load i18n %}
+{% load taggit_extras%}
 {% block title %}Main page{% endblock %}
 {% block js %}<script src="{{STATIC_URL}}js/jquery.tools.min.js"></script>{% endblock %}
+
 {% block slider %}
 	<!-- slider --> 
         <div class="slider">
@@ -58,7 +60,8 @@
         		</div>
 			<!--/ news -->
             
-			<!-- video
+			{%comment%}
+			<!-- video -->
                 <div class="video">
         			<h2>{% trans "Video courses" %}</h2>
         			<ul>
@@ -79,11 +82,28 @@
         				</li>
         			</ul>
                 </div>
-			video-->
-            
-        	</div>
-		<!-- / leftCol -->
+			<!-- video-->
+            {%endcomment%}
+		
+			<!-- tags --> 
+                <div class="tags"> 
+					{%get_tagcloud as tags for 'mainpart'%}
+					<h2>{% trans "TAGS" %}</h2>
+        			<ul>
+						{%for tag in tags%}
+        					<li>
+ 								<!--<a href="{{ tag }}" class="size={{ tag.weight|floatformat:0 }}">{{ tag }}</a> -->
+								<a href="{%url 'mainpart.views.tags' tag%}"><font size="7" color = "red">{{tag}} {{tag.weight}}</font></a>
+							</li>
+						{%endfor%}
+        			</ul>
+               </div>
+			<!--tags-->
 
+	
+        </div>
+		<!-- / leftCol -->
+		
 		<!-- rightCol -->
             <div class="rightCol">
             

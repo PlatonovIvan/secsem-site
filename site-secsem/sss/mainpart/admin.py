@@ -337,6 +337,7 @@ class PublicationAdmin(TranslationAdmin):
 				'place',
 				'conference',
 				'year',
+				'tags',
 			]
 		}),
 	]

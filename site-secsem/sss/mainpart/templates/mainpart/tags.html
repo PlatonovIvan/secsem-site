@@ -1,0 +1,102 @@
+{% extends "mainpart/base.html" %}
+{%load i18n%}
+{% block title %}Search results{% endblock %}
+{% block active_faq %} active {% endblock %}
+{% block content %}
+	<!-- content -->
+        <div class="content contentInner">
+       {%comment%} 
+		<!-- leftCol -->
+        	<div class="leftCol">
+        		<div class="leftMenu">
+        			<nav>
+        				<ul>
+        					<li{%if about_type == "lab"%} class = "current" {%endif%}><a href="{% url 'mainpart.views.about' "lab" %}">{%trans "Laboratory" %}</a></li>
+							<li{%if about_type == "contacts"%} class = "current" {%endif%}><a href="{% url 'mainpart.views.about' "contacts" %}">{% trans "Contacts" %}</a></li>
+								<li{%if about_type == "other"%} class = "current" {%endif%}><a href="{% url 'mainpart.views.about' "other" %}">{% trans "Other" %}</a>
+							</li>
+        				</ul>
+        			</nav>
+        		</div>
+        	</div>
+		<!-- / leftCol -->
+		{%endcomment%}
+
+		<!-- rightCol -->
+            <div class="rightCol">
+            
+				{%if lectures%}
+					<h1>{% trans 'Lectures'%}</h1>
+					<ul>
+					{%for lecture in lectures %}
+						<li><a href= "{% url 'mainpart.views.courses' "lection" lecture.id %}">{{lecture.lecturer}} {{lecture.task}}</a> </li>
+					{%endfor%}
+					</ul>
+				{%endif%}
+			
+				{%if workshops%}
+					<h1>{% trans 'WorkShops'%}</h1>
+					<ul>
+					{%for workshop in wokshops %}
+						<li><a href="{% url 'mainpart.views.courses' "workshop" workshop.id%}">{{workshop.seminarian}} {{workshop.task}}</a></li>
+					{%endfor%}
+					</ul>
+				{%endif%}
+			
+				{%if publications%}
+					<h1>{% trans 'Publications'%}</h1>
+					<ul>
+					{%for publication in publications %}
+						<li>
+                        	{% for pers_info in publication.personalinformation_set.all %}
+                            	{% if pers_info.person.person_id.surname%}
+                                	{{pers_info.person.person_id.surname|capfirst}}
+                               	{% endif %}
+                                {%if pers_info.person.person_id.name %} 
+                                	{{pers_info.person.person_id.name|capfirst}}
+                                {% endif %}     
+                            {% endfor %}
+                           	{{ publication.topic|title}} {{publication.doi}} {{publication.journal}} {{publication.place}} {{publication.conference}} {{publication.year}}
+                        </li>	
+					{%endfor%}
+					</ul>
+				{%endif%}
+			
+				{%if news%}
+					<h1>{% trans 'News'%}</h1>
+					<ul>
+					{%for new in news %}
+						<li><a href="{% url 'mainpart.views.news' new.id %}">{{ new.contents.name }}</a></li>
+	
+					{%endfor%}
+					</ul>
+				{%endif%}
+			
+				{%if course%}
+					<h1>{% trans 'Course'%}</h1>
+					<ul>
+					{%for course in courses %}
+						<li>{{course.instructor}} {{course.time}}</li>
+					{%endfor%}
+					</ul>
+				{%endif%}
+			
+				{%if projects%}
+					<ul>
+					<h1>{% trans 'Projects'%}</h1>
+					{%for project in projects %}
+						<li><a href="{% url 'mainpart.views.project' project.id %}">{{ project.contents.name }}</a></li>
+					{%endfor%}
+					</ul>
+				{%endif%}
+
+
+            </div>
+		<!-- / rightCol-->
+            <div class="clear"><!-- clear --></div>
+            
+            <div class="up">{%trans UP %}</div>
+            
+        </div>
+	<!-- / content -->
+{% endblock %}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib import admin
+from taggit.managers import TaggableManager
 # Create your models here.
 
 
@@ -102,8 +103,8 @@ class Masters_dissertation(Scientific_work):
 
 class Candidate_dissertation(Scientific_work):
 	candidate_dissertation = models.OneToOneField('Postgraduate',null=True,blank=True)
-
 """
+
 
 class Publication(models.Model):
 	topic = models.CharField(max_length=150,blank=True)
@@ -112,6 +113,7 @@ class Publication(models.Model):
 	journal = models.CharField(max_length=150,blank=True)
 	place = models.CharField(max_length=150,blank=True)
 	conference = models.CharField(max_length=150,blank=True)
+	tags = TaggableManager()
 	def __unicode__(self):
 	    return self.topic
 
@@ -140,6 +142,7 @@ class Workshop(Event):
 	seminarian = models.ManyToManyField('Person',null=True,blank=True)
 	task = models.TextField(blank=True)
 	materials = models.TextField(blank=True)
+	tags = TaggableManager()
 	def __unicode__(self):
 	    return self.contents.name
 		
@@ -147,6 +150,7 @@ class Lecture(Event):
 	lecturer = models.ManyToManyField('Person',null=True,blank=True)
 	task = models.TextField(blank=True)
 	materials = models.TextField(blank=True)
+	tags = TaggableManager()
 	def __unicode__(self):
 	    return self.contents.name	
 	
@@ -157,6 +161,7 @@ class NewsPost(models.Model):
 	list_events = models.ManyToManyField('Event',null=True,blank=True)
 	list_long_term = models.ManyToManyField('LongTermActivity',null=True,blank=True)
 	people = models.ManyToManyField('Person',related_name='newspost_people_set',null=True,blank=True)
+	tags = TaggableManager()
 	def __unicode__(self):
 	    return self.contents.name
 	
@@ -173,6 +178,7 @@ class Course(LongTermActivity):
 	instructor = models.ManyToManyField('Person',null=True,blank=True)
 	time = models.TimeField(null=True,blank=True)
 	prerequisites = models.ForeignKey('self',null=True,blank=True)
+	tags = TaggableManager()
 	def __unicode__(self):
 	    return self.contents.name
 		
@@ -180,6 +186,7 @@ class Project(LongTermActivity):
 	participants = models.ManyToManyField('Person', blank=True)
 	repository = models.URLField(blank=True)
 	publications = models.ManyToManyField('Publication',null=True,blank=True)
+	tags = TaggableManager()
 	def __unicode__(self):
 	    return self.contents.name
 

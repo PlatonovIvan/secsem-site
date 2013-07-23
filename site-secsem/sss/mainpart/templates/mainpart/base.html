@@ -5,7 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<title>{% block title %}{% endblock %}{% block blank_title %}{% endblock %}</title>
 		<link rel="stylesheet" href="{{ STATIC_URL }}fonts/fonts.css">
-		<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">	
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css?{%now "U"%}">	
 		<!--[if lt IE 9]>
 			<script src="{{ STATIC_URL }}css/html5.js"></script>
 		<![endif]-->
